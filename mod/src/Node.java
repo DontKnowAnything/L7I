@@ -1,9 +1,8 @@
 /**
  * Defines a single name, score, and the next Node object in the Linked List.
  * Nodes must contain a non-blank name and score greater then 0;
- * 
- * @author Patrick McKnew
  *
+ * @author Patrick McKnew
  */
 public class Node {
 	private String s;
@@ -11,7 +10,7 @@ public class Node {
 	private Node next;
 
 	/**
-	 * 
+	 *
 	 */
 	public Node() {
 		s = "";
@@ -26,10 +25,10 @@ public class Node {
 	 * @param gameScore    The score
 	 */
 	public Node(String sconstructor, int gameScore) {
-		s = sconstructor;
-		score = gameScore;
+		//sconstructor=getS();
+		setS(sconstructor);
+		setScore(gameScore);
 		next = null;
-
 	}
 
 	/**
@@ -37,21 +36,24 @@ public class Node {
 	 */
 	public String getS() {
 		String gs = s;
+
 		return gs;
+
+
 	}
 
 	/**
-	 * @param sS
+	 * @param sS Player name
 	 */
 	public void setS(String sS) {
+
 		String mS = sS;
-		if(!mS.isEmpty()){
-		s = mS;
+		if (!(mS.equals(""))) {
+			s = mS;
+		} else {
+
 		}
-		else
-		{
-			
-		}
+
 	}
 
 	/**
@@ -63,14 +65,11 @@ public class Node {
 	}
 
 	/**
-	 * @param aScore
+	 * @param aScore Score for player
 	 */
 	public void setScore(int aScore) {
-
 		int ss = aScore;
-		if (ss > 0) {
-			score = ss;
-		}
+		score = ss;
 	}
 
 	/**
@@ -81,7 +80,7 @@ public class Node {
 	}
 
 	/**
-	 * @param nextNode
+	 * @param nextNode The next node is GameLinkedList
 	 */
 	public void setNext(Node nextNode) {
 		next = nextNode;
