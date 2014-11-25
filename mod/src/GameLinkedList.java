@@ -15,7 +15,7 @@ public class GameLinkedList implements GameLinkedListInterface {
       head = null;
    }
 
-   public GameLinkedList(String n, int nodeS) {
+   public GameLinkedList( String n, int nodeS ) {
       name = n;
       nodeScore = nodeS;
    
@@ -66,29 +66,30 @@ public class GameLinkedList implements GameLinkedListInterface {
       if(newScore>=0&&(!(newName.equals("")))){
          if ( isEmpty() ) {//List may be empty
          //newNode.setScore(newScore);
-      //Node newNode= new Node();
+         //Node newNode= new Node();
          
             newNode.setNext( head );
             head = newNode;
          }
          else{
-         //newNode.setScore(newScore);
+            //newNode.setScore(newScore);
          //System.err.print("Error");
          
          
          //} else {
-            if (head.getScore() > newNode.getScore()) {//Node belongs at beginning
+            if ( head.getScore() > newNode.getScore() ) {//Node belongs at beginning, change to > and
                Node current = head;
-               newNode.setNext( head );
-               head=newNode;//Works
+               newNode.setNext( current );
+               head = newNode;//Works
             } 
             else {
                Node current = head;//Node belongs at end
-            newNode.setNext( head );
-               while ( current.getNext() != null && current.getNext().getScore() < newNode.getScore() ) {
+               
+               while ( current.getNext() != null && current.getNext().getScore() < newNode.getScore() ) {//to < for lowest to highest
                   current = current.getNext();
                }
-               head=newNode;
+               newNode.setNext( current.getNext() );
+               current.setNext( newNode );
             }
          }
       }
