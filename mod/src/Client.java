@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * Retrieves a name and score from user, sends it to Linked List, and displays
  * content from Link List
@@ -9,57 +10,65 @@ public class Client {
 	 * @param args
 	 */
    public static void main(String[] args) {
-   	//GameLinkedList LinkedList;
-   	//LinkedList = new GameLinkedList();
+      GameLinkedList LinkedList;
+      LinkedList = new GameLinkedList();
+      String start="";
       String scan = "";
       int points = 0;
-      Node node = new Node();
-      GameLinkedList LinkedListOL=new GameLinkedList(scan,points);
+      //Node node = new Node();
+      GameLinkedList LinkedListOL;
       //node.setScore(-1);
       //node.setScore(-2);
       //node.setScore(3);
+      scan="a";
+      points=12;
    
-   
-      LinkedListOL.add("a",-1);
-   	
-      LinkedListOL.add("yu",9);
-      LinkedListOL.add("w",3);
-      LinkedListOL.add("",4);
-      System.out.println("adding 9,");
-      LinkedListOL.add("a",10);
-      LinkedListOL.add("ab",5);
-   	//LinkedListOL.removeLowest();
-   	System.out.println(LinkedListOL.toString());
-   
-   	/*try {
-   		Scanner scanner = new Scanner( System.in );
-   
-   			try {
-   				while ( LinkedList != null ) {
-   					System.out.println("Player name");
-   					scan = scanner.next();
-   					System.out.println( "Score" );
-   					points = scanner.nextInt();
-   
-   					LinkedList = new GameLinkedList( scan, points );
-   					//LinkedList.add( scan, points );
-   					System.out.println("Player: " + scan + " Score: " + points);
-   
-   				}
-   
-   
-   			}catch (Exception e){
-   
-   			}
-   			finally {
-   
-   				scanner.close();
-   			}System.out.println( LinkedList.toString() );
-   
-   
-   	} catch ( Exception e ) {
-   		e.printStackTrace();
-   	}*/
+      // LinkedListOL.add("",4);
+      // LinkedListOL.add("inv",-1);
+   //    
+      // LinkedListOL.add("z",9);
+      // LinkedListOL.add("w",3);
+      // LinkedListOL.add("tom",22);
+      // LinkedListOL.add("a",10);
+      // LinkedListOL.add("Code",30);
+      // LinkedListOL.add("dr",30);
+      // LinkedListOL.add("ab",5);
+      // LinkedListOL.add("ty",8);
+      // LinkedListOL.add("elev",14);
+      // LinkedListOL.add("twive",13);
+      // LinkedListOL.add("opii",12);
+      // LinkedListOL.removeLowest();
+      //System.out.println(LinkedListOL.toString());
+      LinkedListOL=new GameLinkedList(scan,points);
+   	//try {
+      Scanner scanner = new Scanner( System.in );
+      System.out.println( "What?" );
+      
+      while ( LinkedListOL != null ) {
+         System.out.println( "Player name" );
+         scan = scanner.next();
+         System.out.println( "Score" );
+         points = scanner.nextInt();
+         
+         
+         LinkedListOL.add( scan, points );
+         
+      
+      
+      
+      		//}catch (Exception e){
+      
+      		//}
+      		//finally {
+      
+         
+      }
+      System.out.println( LinkedListOL.toString() );
+      
+      
+      //} catch ( Exception e ) {
+      	//e.printStackTrace();
+      //}
    }
 
 }
