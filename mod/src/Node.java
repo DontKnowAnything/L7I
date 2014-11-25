@@ -52,7 +52,7 @@ public class Node {
          s = mS;
       } 
       else {
-      System.err.println("Player name is empty");
+         System.err.println("Player name is empty");
       }
    
    }
