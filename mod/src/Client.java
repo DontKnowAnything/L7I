@@ -20,8 +20,6 @@ public class Client {
       //node.setScore(-1);
       //node.setScore(-2);
       //node.setScore(3);
-      scan="a";
-      points=12;
    
       // LinkedListOL.add("",4);
       // LinkedListOL.add("inv",-1);
@@ -39,31 +37,27 @@ public class Client {
       // LinkedListOL.add("opii",12);
       // LinkedListOL.removeLowest();
       //System.out.println(LinkedListOL.toString());
-      LinkedListOL=new GameLinkedList(scan,points);
+      LinkedListOL=new GameLinkedList( scan, points );
    	//try {
       Scanner scanner = new Scanner( System.in );
-      System.out.println( "What?" );
       
-      while ( LinkedListOL != null ) {
+      String s = "";
+      System.out.print( "Begin?" );
+      s = scanner.nextLine();
+      String quit = "";
+      do {
          System.out.println( "Player name" );
-         scan = scanner.next();
+         scan = scanner.nextLine();//Replace
+         scanner.nextLine();
          System.out.println( "Score" );
          points = scanner.nextInt();
          
-         
          LinkedListOL.add( scan, points );
+         System.out.println( LinkedListOL.toString() );
+         System.out.println( "Press Y to enter in another player" );
+         quit = scanner.next();
          
-      
-      
-      
-      		//}catch (Exception e){
-      
-      		//}
-      		//finally {
-      
-         
-      }
-      System.out.println( LinkedListOL.toString() );
+      }while ( LinkedListOL != null && quit.equalsIgnoreCase( "Y" ) );
       
       
       //} catch ( Exception e ) {
