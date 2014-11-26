@@ -1,16 +1,18 @@
 /**
- * Maintains ordered linked list of Nodes
+ * Maintains ordered linked list of Nodes and throws error message for invalid Node
  *
  * @author Patrick McKnew
  */
 public class GameLinkedList implements GameLinkedListInterface {
    private String name;
+   private int count;
    private int nodeScore;
    private Node head;//first
    private Node tail;//last
 
    public GameLinkedList() {
       name = "";
+      count=0;
       nodeScore = 0;
       head = null;
    }
@@ -51,8 +53,8 @@ public class GameLinkedList implements GameLinkedListInterface {
             head = currentNode.getNext();
             currentNode = null;
          } 
-         else {
-            err += "wrong";
+         else if(count==MAXSIZE) {
+            System.err.println("10");
          }
       }
    }
@@ -64,17 +66,23 @@ public class GameLinkedList implements GameLinkedListInterface {
          if ( isEmpty() ) {//List may be empty
             newNode.setNext( head );
             head = newNode;
+            count++;
          }
          else{
             if ( head.getScore() > newNode.getScore() ) {//Node belongs at beginning, change to < and
                Node current = head;
                newNode.setNext( current );
                head = newNode;
+               count++;
             } 
             else {
                Node current = head;//Node belongs at end 
                while ( current.getNext() != null && current.getNext().getScore() < newNode.getScore() ) {//to > for highest to lowest
                   current = current.getNext();
+               }
+               count++;
+               if(count!=maxsize){
+               
                }
                newNode.setNext( current.getNext() );
                current.setNext( newNode );
