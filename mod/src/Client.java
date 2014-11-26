@@ -42,23 +42,21 @@ public class Client {
       Scanner scanner = new Scanner( System.in );
       
       String s = "";
-      System.out.print( "Begin?" );
-      s = scanner.nextLine();
       String quit = "";
       do {
+         //
          System.out.println( "Player name" );
          scan = scanner.nextLine();//Replace
-         scanner.nextLine();
          System.out.println( "Score" );
          points = scanner.nextInt();
-         
+         scanner.nextLine();
          LinkedListOL.add( scan, points );
          System.out.println( LinkedListOL.toString() );
          System.out.println( "Press Y to enter in another player" );
-         quit = scanner.next();
          
+         quit = scanner.nextLine();
       }while ( LinkedListOL != null && quit.equalsIgnoreCase( "Y" ) );
-      
+      LinkedListOL.removeLowest();
       
       //} catch ( Exception e ) {
       	//e.printStackTrace();
