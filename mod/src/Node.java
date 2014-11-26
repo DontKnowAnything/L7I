@@ -70,7 +70,7 @@ public class Node {
 	 */
    public void setScore(int aScore) {
       int ss = aScore;
-      if(ss>0){
+      if(ss>=0){
          score = ss;
       }
       else{
