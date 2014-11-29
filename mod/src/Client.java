@@ -10,8 +10,6 @@ public class Client {
 	 * @param args
 	 */
    public static void main(String[] args) {
-      GameLinkedList LinkedList;
-      LinkedList = new GameLinkedList();
       String start="";
       String scan = "";
       int points = 0;
@@ -56,7 +54,6 @@ public class Client {
          
          quit = scanner.nextLine();
       }while ( LinkedListOL != null && quit.equalsIgnoreCase( "Y" ) );
-      LinkedListOL.removeLowest();
       
       //} catch ( Exception e ) {
       	//e.printStackTrace();
