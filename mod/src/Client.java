@@ -1,4 +1,6 @@
 import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
 /**
  * Retrieves a name and score from user, sends it to Linked List, and displays
  * content from Link List
@@ -36,28 +38,36 @@ public class Client {
       // LinkedListOL.removeLowest();
       //System.out.println(LinkedListOL.toString());
       LinkedListOL=new GameLinkedList( scan, points );
-   	//try {
-      Scanner scanner = new Scanner( System.in );
+      try {
+         Scanner scanner = new Scanner( System.in );
       
-      String s = "";
-      String quit = "";
-      do {
+         String s = "";
+         String quit = "";
+         do {
          //
-         System.out.println( "Player name" );
-         scan = scanner.nextLine();//Replace
-         System.out.println( "Score" );
-         points = scanner.nextInt();
-         scanner.nextLine();
-         LinkedListOL.add( scan, points );
-         System.out.println( LinkedListOL.toString() );
-         System.out.println( "Press Y to enter in another player" );
+            System.out.println( "Player name" );
+            scan = scanner.nextLine();//Replace
+            System.out.println( "Score" );
+            points = scanner.nextInt();
+            scanner.nextLine();
+            LinkedListOL.add( scan, points );
+            System.out.println( LinkedListOL.toString() );
+            System.out.println( "Press Y to enter in another player" );
          
-         quit = scanner.nextLine();
-      }while ( LinkedListOL != null && quit.equalsIgnoreCase( "Y" ) );
+            quit = scanner.nextLine();
+         }while ( LinkedListOL != null && quit.equalsIgnoreCase( "Y" ) );
       
-      //} catch ( Exception e ) {
-      	//e.printStackTrace();
-      //}
+      } 
+      catch ( LinkedListException e ) {
+         e.printStackTrace();
+      }
+   }
+      
+   private class ButtonListener implements ActionListener{
+      public void actionPreformed(ActionEvent e){
+      
+      }
+     
    }
 
 }
