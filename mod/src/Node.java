@@ -24,10 +24,19 @@ public class Node {
 	 * @param sconstructor String for name
 	 * @param gameScore    The score
 	 */
-   public Node(String sconstructor, int gameScore, Node n) {
-   	//sconstructor=getS();
+   public Node(String sconstructor, int gameScore, Node n) /*throws IllegalDataFieldException*/ {
+      //if(!(sconstructor.isEmpty())){
       setS(sconstructor);
-      setScore(gameScore);
+      //}
+      //else{
+         //throw new IllegalDataFieldException("Name is empty");
+      //}
+      //if(gameScore>=0){
+      setScore(gameScore);//Use ifs?
+      /*}
+      else{
+         throw new IllegalDataFieldException("Score less then 0");
+      }*/
       setNext(n);
    }
 
@@ -48,12 +57,12 @@ public class Node {
    public void setS(String sS) {
    
       String mS = sS;
-      if (!(mS.equals(""))) {
-         s = mS;
-      } 
-      else {
-         System.err.println("Player name is empty");
-      }
+      //if (!(mS.equals(""))) {
+      s = mS;
+      //} 
+      //else {
+         //throw new IllegalDataFieldException("Name is empty");
+      //}
    
    }
 
@@ -70,12 +79,12 @@ public class Node {
 	 */
    public void setScore(int aScore) {
       int ss = aScore;
-      if(ss>=0){
-         score = ss;
-      }
-      else{
-         System.err.println("Score less then 0");
-      }
+      //if(ss>=0){
+      score = ss;
+      //}
+      //else{
+         //throw new IllegalDataFieldException("Score less then 0");
+      //}
    }
 	/**
 	 * @return The Node
