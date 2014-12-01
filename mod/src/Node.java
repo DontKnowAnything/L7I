@@ -54,15 +54,18 @@ public class Node {
 	/**
 	 * @param sS Player name
 	 */
-   public void setS(String sS) {
+   public void setS(String sS) throws IllegalDataFieldException{
    
       String mS = sS;
-      //if (!(mS.equals(""))) {
-      s = mS;
-      //} 
-      //else {
-         //throw new IllegalDataFieldException("Name is empty");
-      //}
+      try{
+         if (!(mS.equals(""))) {
+            s = mS;
+         } 
+         else {
+            throw new IllegalDataFieldException("Name is empty");
+         }
+      }
+      catch(IllegalDataFieldException d){throw new IllegalDataFieldException("Name is empty");}
    
    }
 
@@ -79,12 +82,12 @@ public class Node {
 	 */
    public void setScore(int aScore) {
       int ss = aScore;
-      //if(ss>=0){
-      score = ss;
-      //}
-      //else{
-         //throw new IllegalDataFieldException("Score less then 0");
-      //}
+      if(ss>=0){
+         score = ss;
+      }
+      else{
+         throw new IllegalDataFieldException("Score less then 0");
+      }
    }
 	/**
 	 * @return The Node
