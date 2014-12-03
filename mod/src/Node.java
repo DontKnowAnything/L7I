@@ -22,21 +22,24 @@ public class Node {
 	 * The overloaded constructor
 	 *
 	 * @param sconstructor String for name
-	 * @param gameScore    The score
+	 * @param gameScore The score
+	 * @param n
 	 */
-	public Node(String sconstructor, int gameScore, Node n) /*throws IllegalDataFieldException*/ {
-		//if(!(sconstructor.isEmpty())){
+	public Node(String sconstructor, int gameScore, Node n) /*
+															 * throws
+															 * IllegalDataFieldException
+															 */{
+		// if(!(sconstructor.isEmpty())){
 		setS(sconstructor);
-		//}
-		//else{
-		//throw new IllegalDataFieldException("Name is empty");
-		//}
-		//if(gameScore>=0){
-		setScore(gameScore);//Use ifs?
-	  /*}
-	  else{
-		 throw new IllegalDataFieldException("Score less then 0");
-	  }*/
+		// }
+		// else{
+		// throw new IllegalDataFieldException("Name is empty");
+		// }
+		// if(gameScore>=0){
+		setScore(gameScore);// Use ifs?
+		/*
+		 * } else{ throw new IllegalDataFieldException("Score less then 0"); }
+		 */
 		setNext(n);
 	}
 
@@ -48,7 +51,6 @@ public class Node {
 
 		return gs;
 
-
 	}
 
 	/**
@@ -56,23 +58,13 @@ public class Node {
 	 * @throws IllegalDataFieldException If the s is empty
 	 */
 	public void setS(String sS) throws IllegalDataFieldException {
+		String mS = sS;
 
-		try {
-			String mS = sS;
-
-//			if (!(mS.equals(""))) {
-//				s = mS;
-//			}
-//			else {
-//				throw new IllegalDataFieldException("Name is empty");
-//			}
-
+		if (!(mS.equals(""))) {
 			s = mS;
-		} catch (IllegalDataFieldException illegalName) {
-			illegalName = new IllegalDataFieldException("Name");
+		} else {
+			throw new IllegalDataFieldException("Name is empty");
 		}
-
-
 	}
 
 	/**
@@ -87,7 +79,7 @@ public class Node {
 	 * @param aScore Score for player
 	 * @throws IllegalDataFieldException If score is less then 0
 	 */
-	public void setScore(int aScore) {
+	public void setScore(int aScore) throws IllegalDataFieldException {
 		int ss = aScore;
 		if (ss >= 0) {
 			score = ss;
@@ -104,7 +96,8 @@ public class Node {
 	}
 
 	/**
-	 * @param nextNode The next node is GameLinkedList
+	 * @param nextNode
+	 *            The next node is GameLinkedList
 	 */
 	public void setNext(Node nextNode) {
 		next = nextNode;
