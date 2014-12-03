@@ -10,7 +10,7 @@ import javax.swing.*;
  * @author Patrick McKnew
  */
 public class Client {
-/*	private JTextField nameField;
+	/*private JTextField nameField;
 	private JTextField scoreField;
 	private JButton add;
 	private JFrame frame;
@@ -18,9 +18,11 @@ public class Client {
 	private JPanel panel2;
 	private JTextArea area;
 	private Container pane;
-
+	*//**
+	 * 
+	 *//*
 	public Client() {
-
+		//try{
 		nameField = new JTextField();
 		scoreField = new JTextField();
 		area= new JTextArea();
@@ -29,101 +31,83 @@ public class Client {
 		panel2 = new JPanel();
 		add = new JButton();
 		pane = new Container();
-
 		ButtonListener b1=new ButtonListener();
-
 		frame.setContentPane( pane );
-
 		panel2.add( area );
 		panel1.add( nameField );
 		panel1.add( scoreField );
 		panel1.add( add );
 		pane.add( panel2 );
 		pane.add(panel1);
-
 		//panel2.setLayout(new GridLayout(0,3));
 		panel1.setLayout(new GridLayout(3,0));
 		pane.setLayout( new GridLayout(0,2) );
-
 		frame.setSize(100, 100);
 		pane.setSize( 100, 100 );
 		//scoreField.setSize(70,30);
-
-
 		scoreField.setText( "score" );
 		add.setText( "Add" );
-
 		frame.setVisible( true );
 		frame.setLayout( new FlowLayout() );
-
 		area.setColumns( 11 );
 		area.setRows( 11 );
 		scoreField.setColumns( 10 );
 		nameField.setColumns( 10 );
-
 		add.addActionListener( b1 );
 		nameField.addActionListener( b1 );
-
 		frame.setDefaultCloseOperation( frame.EXIT_ON_CLOSE );
 		frame.pack();
+	
+		}catch(LinkedListException li){
+			li=new LinkedListException();
+		}
 	}
-	public void build() {
-		String start="";
-		String scan = "";
-		int points = 0;
-		GameLinkedList LinkedListOL=new GameLinkedList();
+	private void build() {
 		try {
-			Scanner scanner = new Scanner( System.in );
-
-			String s = "";
-			String quit = "";
-
-				//
-				area.setText("Enter Player name and Score");
-			do{
-				System.out.println( "Player name" );
-				scan = scanner.nextLine();//Replace
-				System.out.println( "Score" );
-				points = scanner.nextInt();
-				scanner.nextLine();
-				LinkedListOL.add(scan, points);
-				System.out.println(LinkedListOL.toString());
-				area.setText( LinkedListOL.toString() );
-				System.out.println( "Press Y to enter in another player" );
-
-				quit = scanner.nextLine();
-			}while ( quit.equalsIgnoreCase( "Y" ) );
-
-
+			panel2.add( area );
+			panel1.add( nameField );
+			panel1.add( scoreField );
+			panel1.add( add );
+			pane.add( panel2 );
+			pane.add(panel1);
 		}
 		catch ( LinkedListException e ) {
 			e.getMessage();
-
 		}
 	}
 	private class ButtonListener implements ActionListener {
-		boolean toggle = true;
-		GameLinkedList ll=new GameLinkedList(nameField.getText());
-
+		
+		GameLinkedList ll=new GameLinkedList();
 		public void actionPerformed( ActionEvent e ) {
-			if ( e.getSource() == add )
-				area.setText();
+			//while(true){
+			String nameInput = nameField.getText();
+			int scoreInput=Integer.parseInt( scoreField.getText() );
+			if ( e.getSource() == add ){
+				ll.add( nameInput, scoreInput );
+				area.setText( ll.toString() );
+				}
 			else
 				area.setText( "Sample" );
+			}
 			//toggle = !toggle;
-		}
-	}*/
+		}*/
+	
+	//}
 
 	/**
 	 * @param args the
 	 */
 	public static void main(String[] args) {
+		try{
 		Client c = new Client();
+		}catch(LinkedListException lle){
+			lle=new LinkedListException();
+		}
 		String start = "";
 		String scan = "";
 		int points = 0;
 		//Node node = new Node();
-//		GameLinkedList LinkedListOL;
+		GameLinkedList LinkedListOL;
 //		//node.setScore(-1);
 //		//node.setScore(-2);
 //		//node.setScore(3);
@@ -144,31 +128,31 @@ public class Client {
 ////      LinkedListOL.add("opii",12);
 ////      //LinkedListOL.removeLowest();
 ////      System.out.println(LinkedListOL.toString());
-//		LinkedListOL=new GameLinkedList( scan, points );
-//		try {
-//			Scanner scanner = new Scanner( System.in );
-//
-//			String s = "";
-//			String quit = "";
-//			do {
-//				//
-//				System.out.println( "Player name" );
-//				scan = scanner.nextLine();//Replace
-//				System.out.println( "Score" );
-//				points = scanner.nextInt();
-//				scanner.nextLine();
-//				LinkedListOL.add( scan, points );
-//				System.out.println( LinkedListOL.toString() );
-//				System.out.println( "Press Y to enter in another player" );
-//
-//				quit = scanner.nextLine();
-//			}while ( quit.equalsIgnoreCase( "Y" ) );
-//
-//
-//		}
-//		catch ( LinkedListException e ) {
-//			e.getMessage();
-//
-//		}
+		LinkedListOL=new GameLinkedList( scan, points );
+		try {
+			Scanner scanner = new Scanner( System.in );
+
+			String s = "";
+			String quit = "";
+			do {
+				//
+				System.out.println( "Player name" );
+				scan = scanner.nextLine();//Replace
+				System.out.println( "Score" );
+				points = scanner.nextInt();
+				scanner.nextLine();
+				LinkedListOL.add( scan, points );
+				System.out.println( LinkedListOL.toString() );
+				System.out.println( "Press Y to enter in another player" );
+
+				quit = scanner.nextLine();
+			}while ( quit.equalsIgnoreCase( "Y" ) );
+
+
+		}
+		catch ( LinkedListException e ) {
+			e.getMessage();
+
+		}
 	}
 }
